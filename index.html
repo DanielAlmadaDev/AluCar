@@ -1,12 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AluCar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Hey</h2>
+    <header>
+        <p>AluCar</p>
+    </header>
+    <main>
+        <div class="logo">
+            <div class="fundo-transparente">
+                <p>AluCar</p>
+            <p>Aluguel de Carros</p>
+            </div>
+        </div>
+        <section class="sobre-nos">
+            <h2>Sobre nós</h2>
+            <p>Há 45 anos atuando na área de locação de veículos com segurança e garantia de satisfação. 
+                Temos os melhores preços e modelos do mercado.
+            </p>
+            <div class="imagens">
+                <img src="img/img1.jpg" alt="">
+                <img src="img/img2.jpg" alt="">
+                <img src="img/img3.jpg" alt="">
+            </div>
+            <p class="borde-left">O compromisso da AluCar é com a qualidade.</p>
+            <p class="borde-left">Os melhores carros estão aqui!</p>
+            <p class="borde-left">Assistência 24hrs.</p>
+        </section>
+        <section class="contato">
+            <h1></h1>
+            <h2>Contato</h2>
+            <h1></h1>
+        </section>
+        <section class="cadastro">
+            <h2>Análise de cadastro</h2>
+            <p>Preencha os campos abaixo e analisaremos seus dados.</p>
+            <p>Se tudo estiver correto ligaremos para marcar uma visita sua à loja.</p>
+
+            <form method="post" action="https://www.devmedia.com.br/codigos/formularios/aula9/">
+                <fieldset>
+                    <legend>Dados pessoais</legend>
+                    <label for="">Nome</label>
+                    <input type="text" placeholder="digite seu nome" required name="nome">
+                    <label for="">Data de nascimento</label>
+                    <input type="date" required name="nascimento">
+                    <label for="">Telefone</label>
+                    <input type="tel" name="Telefone" required placeholder="(xx) xxxxxxxxx">
+                </fieldset>
+
+                <fieldset>
+                    <legend>CNH</legend>
+                    <label for="">Numero de registro</label>
+                    <input type="number" required name="numero_registro" placeholder="informe o numero da sua CNH">
+                    <label for="">Validade</label>
+                    <input type="date" name="Validade" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Carro</legend>
+                    <label for="">Modelo</label>
+                    <select name="carro" id="" required>
+                        <option value="">Escolha o modelo</option>
+                        <optgroup label="Volkswagen">
+                            <option value="polo">polo</option>
+                            <option value="jetta">jetta</option>
+                            <option value="voyage">voyage</option>
+                        </optgroup>
+                        <optgroup label="Ford">
+                            <option value="Fiesta">Fiesta</option>
+                            <option value="Fusion">Fusion</option>
+                            <option value="sedan">Sedan</option>
+                        </optgroup>
+                        <optgroup label="Toyota">
+                            <option value="Camary">Camary</option>
+                            <option value="Corolla">Corolla</option>
+                            <option value="Hilux">Hilus</option>
+                        </optgroup>
+                    </select>
+                </fieldset>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright 2022 - AluCar</p>
+      </footer>
 </body>
 </html>
