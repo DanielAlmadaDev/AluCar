@@ -1,92 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AluCar</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedido de Casamento</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative; /* Para permitir posicionamento absoluto dos botões */
+    }
+    h1 {
+        color: #333;
+    }
+    .options {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #ddd;
+    }
+    #naoBtn{
+      margin-top:-55px;
+      color:red;
+    }
+    .move {
+        position: absolute;
+    }
+</style>
 </head>
 <body>
-    <header>
-        <p>AluCar</p>
-    </header>
-    <main>
-        <div class="logo">
-            <div class="fundo-transparente">
-                <p>AluCar</p>
-            <p>Aluguel de Carros</p>
-            </div>
-        </div>
-        <section class="sobre-nos">
-            <h2>Sobre nós</h2>
-            <p>Há 45 anos atuando na área de locação de veículos com segurança e garantia de satisfação. 
-                Temos os melhores preços e modelos do mercado.
-            </p>
-            <div class="imagens">
-                <img src="img/img1.jpg" alt="">
-                <img src="img/img2.jpg" alt="">
-                <img src="img/img3.jpg" alt="">
-            </div>
-            <p class="borde-left">O compromisso da AluCar é com a qualidade.</p>
-            <p class="borde-left">Os melhores carros estão aqui!</p>
-            <p class="borde-left">Assistência 24hrs.</p>
-        </section>
-        <section class="contato">
-            <h2>Contato</h2>
-        </section>
-        <section class="cadastro">
-            <h2>Análise de cadastro</h2>
-            <p>Preencha os campos abaixo e analisaremos seus dados.</p>
-            <p>Se tudo estiver correto ligaremos para marcar uma visita sua à loja.</p>
 
-            <form method="post" action="https://www.devmedia.com.br/codigos/formularios/aula9/">
-                <fieldset>
-                    <legend>Dados pessoais</legend>
-                    <label for="">Nome</label>
-                    <input type="text" placeholder="digite seu nome" required name="nome">
-                    <label for="">Data de nascimento</label>
-                    <input type="date" required name="nascimento">
-                    <label for="">Telefone</label>
-                    <input type="tel" name="Telefone" required placeholder="(xx) xxxxxxxxx">
-                </fieldset>
+<div class="container">
+    <h1>Casa comigo, Ana Karoline?</h1>
+    <div class="options">
+        <button id="simBtn" onclick="redirectVideo()">Sim</button>
+        <button id="naoBtn" class="move" onclick="moveButton()">Não</button>
+    </div>
+</div>
 
-                <fieldset>
-                    <legend>CNH</legend>
-                    <label for="">Numero de registro</label>
-                    <input type="number" required name="numero_registro" placeholder="informe o numero da sua CNH">
-                    <label for="">Validade</label>
-                    <input type="date" name="Validade" required>
-                </fieldset>
+<script>
+    window.onload = function() {
+        var simButton = document.getElementById('simBtn');
+        var naoButton = document.getElementById('naoBtn');
+        
+        // Posiciona o botão Não ao lado do botão Sim
+        var simButtonRect = simButton.getBoundingClientRect();
+        naoButton.style.left = simButtonRect.right + 20 + 'px'; // 20px de espaço entre os botões
+        naoButton.style.top = simButtonRect.top + 'px';
+    };
 
-                <fieldset>
-                    <legend>Carro</legend>
-                    <label for="">Modelo</label>
-                    <select name="carro" id="" required>
-                        <option value="">Escolha o modelo</option>
-                        <optgroup label="Volkswagen">
-                            <option value="polo">polo</option>
-                            <option value="jetta">jetta</option>
-                            <option value="voyage">voyage</option>
-                        </optgroup>
-                        <optgroup label="Ford">
-                            <option value="Fiesta">Fiesta</option>
-                            <option value="Fusion">Fusion</option>
-                            <option value="sedan">Sedan</option>
-                        </optgroup>
-                        <optgroup label="Toyota">
-                            <option value="Camary">Camary</option>
-                            <option value="Corolla">Corolla</option>
-                            <option value="Hilux">Hilus</option>
-                        </optgroup>
-                    </select>
-                </fieldset>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>Copyright 2022 - AluCar</p>
-      </footer>
+    function moveButton() {
+        var button = document.getElementById('naoBtn');
+        var container = document.querySelector('.container');
+        var containerRect = container.getBoundingClientRect();
+        
+        // Limites de movimento dentro da .container
+        var maxWidth = containerRect.width - button.offsetWidth;
+        var maxHeight = containerRect.height - button.offsetHeight;
+        
+        // Movimenta o botão Não para uma nova posição aleatória
+        var newX = Math.random() * maxWidth;
+        var newY = Math.random() * maxHeight;
+        
+        button.style.left = newX + 'px';
+        button.style.top = newY + 'px';
+    }
+
+    function redirectVideo() {
+        // Aqui você define o link do vídeo do YouTube para redirecionar
+        var videoLink = 'https://youtu.be/DV1C-ZVbYyI?si=3Mk7xTCidQ3sgwwJ';
+        window.location.href = videoLink;
+    }
+</script>
+
 </body>
 </html>
